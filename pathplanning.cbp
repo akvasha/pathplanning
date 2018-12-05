@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="pathplanning"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/akvasha/pathplanning"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/akvasha/pathplanning/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/akvasha/pathplanning/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/akvasha/pathplanning/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/akvasha/pathplanning/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/akvasha/pathplanning"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/akvasha/pathplanning/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/akvasha/pathplanning/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/akvasha/pathplanning/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/akvasha/pathplanning/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="pathplanning">
+				<Option output="/home/akvasha/pathplanning/pathplanning" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/akvasha/pathplanning"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/akvasha/pathplanning/Makefile&quot;  VERBOSE=1 pathplanning"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/akvasha/pathplanning/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/akvasha/pathplanning/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/akvasha/pathplanning/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="pathplanning/fast">
+				<Option output="/home/akvasha/pathplanning/pathplanning" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/akvasha/pathplanning"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/akvasha/pathplanning/Makefile&quot;  VERBOSE=1 pathplanning/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/akvasha/pathplanning/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/akvasha/pathplanning/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/akvasha/pathplanning/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/akvasha/pathplanning"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/akvasha/pathplanning/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/akvasha/pathplanning/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/akvasha/pathplanning/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/akvasha/pathplanning/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/akvasha/pathplanning/astar.cpp">
+			<Option target="pathplanning"/>
+		</Unit>
+		<Unit filename="/home/akvasha/pathplanning/astar.h">
+			<Option target="pathplanning"/>
+		</Unit>
+		<Unit filename="/home/akvasha/pathplanning/config.cpp">
+			<Option target="pathplanning"/>
+		</Unit>
+		<Unit filename="/home/akvasha/pathplanning/config.h">
+			<Option target="pathplanning"/>
+		</Unit>
+		<Unit filename="/home/akvasha/pathplanning/dijkstra.cpp">
+			<Option target="pathplanning"/>
+		</Unit>
+		<Unit filename="/home/akvasha/pathplanning/dijkstra.h">
+			<Option target="pathplanning"/>
+		</Unit>
+		<Unit filename="/home/akvasha/pathplanning/environmentoptions.cpp">
+			<Option target="pathplanning"/>
+		</Unit>
+		<Unit filename="/home/akvasha/pathplanning/environmentoptions.h">
+			<Option target="pathplanning"/>
+		</Unit>
+		<Unit filename="/home/akvasha/pathplanning/gl_const.h">
+			<Option target="pathplanning"/>
+		</Unit>
+		<Unit filename="/home/akvasha/pathplanning/ilogger.h">
+			<Option target="pathplanning"/>
+		</Unit>
+		<Unit filename="/home/akvasha/pathplanning/isearch.cpp">
+			<Option target="pathplanning"/>
+		</Unit>
+		<Unit filename="/home/akvasha/pathplanning/isearch.h">
+			<Option target="pathplanning"/>
+		</Unit>
+		<Unit filename="/home/akvasha/pathplanning/main.cpp">
+			<Option target="pathplanning"/>
+		</Unit>
+		<Unit filename="/home/akvasha/pathplanning/map.cpp">
+			<Option target="pathplanning"/>
+		</Unit>
+		<Unit filename="/home/akvasha/pathplanning/map.h">
+			<Option target="pathplanning"/>
+		</Unit>
+		<Unit filename="/home/akvasha/pathplanning/mission.cpp">
+			<Option target="pathplanning"/>
+		</Unit>
+		<Unit filename="/home/akvasha/pathplanning/mission.h">
+			<Option target="pathplanning"/>
+		</Unit>
+		<Unit filename="/home/akvasha/pathplanning/node.h">
+			<Option target="pathplanning"/>
+		</Unit>
+		<Unit filename="/home/akvasha/pathplanning/searchresult.h">
+			<Option target="pathplanning"/>
+		</Unit>
+		<Unit filename="/home/akvasha/pathplanning/tinyxml2.cpp">
+			<Option target="pathplanning"/>
+		</Unit>
+		<Unit filename="/home/akvasha/pathplanning/tinyxml2.h">
+			<Option target="pathplanning"/>
+		</Unit>
+		<Unit filename="/home/akvasha/pathplanning/xmllogger.cpp">
+			<Option target="pathplanning"/>
+		</Unit>
+		<Unit filename="/home/akvasha/pathplanning/xmllogger.h">
+			<Option target="pathplanning"/>
+		</Unit>
+		<Unit filename="/home/akvasha/pathplanning/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
