@@ -18,6 +18,14 @@ struct Node
     double  F, g, H; //f-, g- and h-values of the search node
     Node    *parent; //backpointer to the predecessor node (e.g. the node which g-value was used to set the g-velue of the current node)
 
+    Node() : i(0), j(0), F(0), g(0), H(0), parent(nullptr) {}
+
+    Node(int i, int j) : i(i), j(j), F(0), g(0), H(0), parent(nullptr) {}
+
+    Node(std::pair<int, int> _Node) : i(_Node.first), j(_Node.second), F(0), g(0), H(0), parent(nullptr) {}
+
+    Node(int i, int j, double F, double g, double H, Node *parent) : i(i), j(j), F(F), g(g), H(H), parent(parent) {}
+
     bool operator== (const Node &other) const {
         return i == other.i && j == other.j;
     }

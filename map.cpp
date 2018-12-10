@@ -338,3 +338,11 @@ double Map::getCellSize() const
 {
       return cellSize;
 }
+
+std::pair<int, int> Map::getStart() const {
+    return std::make_pair(start_i, start_j);
+}
+
+std::pair<int, int> Map::getGoal() const {
+    return std::make_pair(goal_i,  goal_j);
+}

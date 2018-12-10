@@ -3,6 +3,8 @@
 #include "ilogger.h"
 #include "searchresult.h"
 #include "environmentoptions.h"
+#include "OpenCellsContainer.h"
+#include "ClosedCellsContainer.h"
 #include <list>
 #include <vector>
 #include <math.h>
@@ -39,16 +41,17 @@ class ISearch
 
 
 
-        //double computeHFromCellToCell(int start_i, int start_j, int fin_i, int fin_j, const EnvironmentOptions &options) {return 0;}
-        //std::list<Node> findSuccessors(Node curNode, const Map &map, const EnvironmentOptions &options);
-        //void makePrimaryPath(Node curNode);//Makes path using back pointers
-        //void makeSecondaryPath();//Makes another type of path(sections or points)
+        double computeHFromCellToCell(int start_i, int start_j, int fin_i, int fin_j, const EnvironmentOptions &options) {return 0;}
+        std::list<Node> findSuccessors(Node* curNode, const Map &map, const EnvironmentOptions &options);
+        void makePrimaryPath(Node curNode);//Makes path using back pointers
+        void makeSecondaryPath();//Makes another type of path(sections or points)
         //Node resetParent(Node current, Node parent, const Map &map, const EnvironmentOptions &options) {return current;}//need for Theta*
 
         SearchResult                    sresult;
         std::list<Node>                 lppath, hppath;
         double                          hweight;//weight of h-value
         bool                            breakingties;//flag that sets the priority of nodes in addOpen function when their F-values is equal
-        //need to define open, close;
+        OpenCellsContainer open;
+        ClosedCellsContainer close;
 };
 #endif

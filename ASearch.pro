@@ -18,7 +18,9 @@ SOURCES += \
     config.cpp \
     astar.cpp \
     main.cpp \
-    environmentoptions.cpp
+    environmentoptions.cpp \
+    ClosedCellsContainer.cpp \
+    OpenCellsContainer.cpp
 
 HEADERS += \
     tinyxml2.h \
@@ -33,4 +35,7 @@ HEADERS += \
     config.h \
     astar.h \
     searchresult.h \
-    environmentoptions.h
+    environmentoptions.h \
+    CellCoords.h \
+    ClosedCellsContainer.h \
+    OpenCellsContainer.h

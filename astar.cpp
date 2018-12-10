@@ -8,6 +8,6 @@ Astar::Astar(double HW, bool BT)
 
 double Astar::computeHFromCellToCell(int i1, int j1, int i2, int j2, const EnvironmentOptions &options)
 {
-    //need to implement
+    return sqrt((i2 - i1) * (i2 - i1) + (j2 - j1) * (j2 - j1));
     return 0;
 }

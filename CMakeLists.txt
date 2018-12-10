@@ -26,6 +26,6 @@ set(SOURCE_FILES
         astar.h
         searchresult.h
         environmentoptions.h
-        main.cpp)
+        CellCoords.h ClosedCellsContainer.h ClosedCellsContainer.cpp OpenCellsContainer.h OpenCellsContainer.cpp)
 
 add_executable(pathplanning ${SOURCE_FILES})
