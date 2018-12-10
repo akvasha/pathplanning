@@ -8,6 +8,5 @@ Astar::Astar(double HW, bool BT)
 
 double Astar::computeHFromCellToCell(int i1, int j1, int i2, int j2, const EnvironmentOptions &options)
 {
-    return sqrt((i2 - i1) * (i2 - i1) + (j2 - j1) * (j2 - j1));
-    return 0;
+    return std::abs(i2 - i1) + std::abs(j2 - j1);
 }
