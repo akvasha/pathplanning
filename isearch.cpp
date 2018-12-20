@@ -20,6 +20,7 @@ SearchResult ISearch::startSearch(ILogger *Logger, const Map &map, const Environ
     Node goalNode = Node(map.getGoal());
     startNode.H = computeHFromCellToCell(startNode.i, startNode.j, goalNode.i, goalNode.j, options);
     startNode.F = startNode.H * hweight;
+    startNode.g = 0;
     Node currNode;
     open.insert(startNode);
     while (!open.empty()) {
@@ -39,12 +40,12 @@ SearchResult ISearch::startSearch(ILogger *Logger, const Map &map, const Environ
     if (sresult.pathfound) {
         sresult.pathlength = static_cast<unsigned int>(currNode.g); //in current realisation path is always represented as integer, because diagonals are not required yet (according to the answer for my question in Telegram char)
         makePrimaryPath(currNode);
+        etime = std::chrono::system_clock::now();
+        sresult.time = static_cast<double>(std::chrono::duration_cast<std::chrono::milliseconds>(etime - stime).count()); //counted in milliseconds
         makeSecondaryPath();
     }
     sresult.nodescreated = static_cast<unsigned int>(open.size() + close.size());
     sresult.numberofsteps = static_cast<unsigned int>(close.size());
-    etime = std::chrono::system_clock::now();
-    sresult.time = static_cast<double>(std::chrono::duration_cast<std::chrono::milliseconds>(etime - stime).count()); //counted in milliseconds
     sresult.hppath = &hppath; //Here is a constant pointer
     sresult.lppath = &lppath;
     return sresult;
