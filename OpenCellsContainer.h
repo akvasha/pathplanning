@@ -25,7 +25,7 @@ public:
 
 private:
     std::unordered_map<CellCoords, Node, CellCoords::hasher> nodes;
-    std::set<std::pair<std::pair<int, int>, CellCoords>> min_value;
+    std::set<std::pair<std::pair<double, double>, CellCoords>> min_value;
 };
 
 #endif //PATHPLANNING_OPENCELLSCONTAINER_H

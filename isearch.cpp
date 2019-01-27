@@ -38,10 +38,10 @@ SearchResult ISearch::startSearch(ILogger *Logger, const Map &map, const Environ
         }
     }
     if (sresult.pathfound) {
-        sresult.pathlength = static_cast<unsigned int>(currNode.g); //in current realisation path is always represented as integer, because diagonals are not required yet (according to the answer for my question in Telegram char)
+        sresult.pathlength = static_cast<float>(currNode.g);
         makePrimaryPath(currNode);
         etime = std::chrono::system_clock::now();
-        sresult.time = static_cast<double>(std::chrono::duration_cast<std::chrono::milliseconds>(etime - stime).count()); //counted in milliseconds
+        sresult.time = static_cast<double>(std::chrono::duration_cast<std::chrono::milliseconds>(etime - stime).count()) / 1000; //counted in seconds
         makeSecondaryPath();
     }
     sresult.nodescreated = static_cast<unsigned int>(open.size() + close.size());
@@ -67,18 +67,37 @@ std::list<Node> ISearch::findSuccessors(Node* curNode, const Map &map, const Env
             if (!map.CellIsTraversable(go_i, go_j)) {
                 continue;
             }
+            if (di != 0 && dj != 0) {
+                if (!options.allowdiagonal) {
+                    continue;
+                } else {
+                    bool v1 = map.CellIsObstacle(curNode->i, go_j);
+                    bool v2 = map.CellIsObstacle(go_i, curNode->j);
+                    if (!options.cutcorners) {
+                        if (v1 || v2) {
+                            continue;
+                        }
+                    } else if (!options.allowsqueeze){
+                        if (v1 && v2) {
+                            continue;
+                        }
+                    }
+                }
+            }
             if (close.consist(go_i, go_j)) {
                 continue;
             }
+            Node successor(go_i, go_j);
             if (di == 0 || dj == 0) {
-                Node successor(go_i, go_j);
                 successor.g = curNode->g + 1;
-                Node goalNode = map.getGoal();
-                successor.H = computeHFromCellToCell(successor.i, successor.j, goalNode.i, goalNode.j, options);
-                successor.F = successor.H * hweight + successor.g;
-                successor.parent = curNode;
-                successors.push_back(successor);
+            } else {
+                successor.g = curNode->g + std::sqrt(2);
             }
+            Node goalNode = map.getGoal();
+            successor.H = computeHFromCellToCell(successor.i, successor.j, goalNode.i, goalNode.j, options);
+            successor.F = successor.H * hweight + successor.g;
+            successor.parent = curNode;
+            successors.push_back(successor);
         }
     }
     return successors;
