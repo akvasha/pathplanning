@@ -15,7 +15,7 @@ double Astar::computeHFromCellToCell(int i1, int j1, int i2, int j2, const Envir
     } else if (options.metrictype == CN_SP_MT_CHEB) {
         return std::max(std::abs(i2 - i1), std::abs(j2 - j1));
     } else if (options.metrictype == CN_SP_MT_DIAG) {
-        return std::abs(std::abs(i2 - i1) + std::abs(j2 - j1)) + std::sqrt(2) * std::min(std::abs(i2 - i1), std::abs(j2 - j1));
+        return std::abs(std::abs(i2 - i1) - std::abs(j2 - j1)) + std::sqrt(2) * std::min(std::abs(i2 - i1), std::abs(j2 - j1));
     } else {
         return 0;
     }

@@ -20,7 +20,7 @@ public:
 
     void writeToLogMap(const Map &Map, const std::list<Node> &path);
 
-    //void writeToLogOpenClose(const typename &open, const typename &close);
+    void writeToLogOpenClose(const OpenCellsContainer &open, const ClosedCellsContainer &close, bool last);
 
     void writeToLogPath(const std::list<Node> &path);
 

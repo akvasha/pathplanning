@@ -18,6 +18,7 @@ public:
     void insert(Node node);
     bool consist(int i, int j);
     Node* get(Node node);
+    std::unordered_map<CellCoords, Node, CellCoords::hasher> get_nodes() const;
 
 private:
     std::unordered_map<CellCoords, Node, CellCoords::hasher> nodes;

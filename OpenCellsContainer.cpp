@@ -46,3 +46,7 @@ void OpenCellsContainer::recalc(Node node) {
     insert(node);
 }
 
+std::unordered_map<CellCoords, Node, CellCoords::hasher> OpenCellsContainer::get_nodes() const {
+    return nodes;
+}
+

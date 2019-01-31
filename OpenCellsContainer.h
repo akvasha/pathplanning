@@ -22,6 +22,7 @@ public:
     bool empty() const;
     Node min_element() const;
     void recalc(Node node);
+    std::unordered_map<CellCoords, Node, CellCoords::hasher> get_nodes() const;
 
 private:
     std::unordered_map<CellCoords, Node, CellCoords::hasher> nodes;

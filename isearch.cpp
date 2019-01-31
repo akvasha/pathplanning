@@ -36,7 +36,9 @@ SearchResult ISearch::startSearch(ILogger *Logger, const Map &map, const Environ
         for (auto successor : successors) {
             open.recalc(successor);
         }
+        Logger->writeToLogOpenClose(open, close, false);
     }
+    Logger->writeToLogOpenClose(open, close, true);
     if (sresult.pathfound) {
         sresult.pathlength = static_cast<float>(currNode.g);
         makePrimaryPath(currNode);

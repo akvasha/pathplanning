@@ -19,3 +19,7 @@ bool ClosedCellsContainer::consist(int i, int j) {
 Node* ClosedCellsContainer::get(Node node) {
     return &nodes[CellCoords(node)];
 }
+
+std::unordered_map<CellCoords, Node, CellCoords::hasher> ClosedCellsContainer::get_nodes() const {
+    return nodes;
+}

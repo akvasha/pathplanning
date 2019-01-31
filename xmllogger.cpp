@@ -124,14 +124,45 @@ void XmlLogger::writeToLogMap(const Map &map, const std::list<Node> &path)
     }
 }
 
-/*void XmlLogger::writeToLogOpenClose(const typename &open, const typename &close)
+void XmlLogger::writeToLogOpenClose(const OpenCellsContainer &open, const ClosedCellsContainer &close, bool last)
 {
-    //need to implement
     if (loglevel != CN_LP_LEVEL_FULL_WORD  && !(loglevel == CN_LP_LEVEL_MEDIUM_WORD && last))
         return;
-
-
-}*/
+    XMLElement *element = doc.NewElement(CNS_TAG_STEP);
+    XMLElement *logs_deep = nullptr;
+    int step = 0;
+    XMLElement *logs = doc.FirstChildElement(CNS_TAG_ROOT)->FirstChildElement(CNS_TAG_LOG)->FirstChildElement(CNS_TAG_LOWLEVEL);
+    for (logs_deep = logs->FirstChildElement(); logs_deep != nullptr; logs_deep = logs_deep->NextSiblingElement()) {
+        ++step;
+    }
+    element->SetAttribute(CNS_TAG_ATTR_NUM, step);
+    logs->InsertEndChild(element);
+    logs = logs->LastChildElement();
+    logs->InsertEndChild(doc.NewElement(CNS_TAG_OPEN));
+    auto opened = open.get_nodes();
+    auto closed = close.get_nodes();
+    logs_deep = logs->LastChildElement();
+    for (auto elem : opened) {
+        Node cur = elem.second;
+        element = doc.NewElement(CNS_TAG_POINT);
+        element->SetAttribute(CNS_TAG_ATTR_X, cur.j);
+        element->SetAttribute(CNS_TAG_ATTR_Y, cur.i);
+        element->SetAttribute(CNS_TAG_ATTR_F, cur.F);
+        element->SetAttribute(CNS_TAG_ATTR_G, cur.g);
+        logs_deep->InsertEndChild(element);
+    }
+    logs->InsertEndChild(doc.NewElement(CNS_TAG_CLOSE));
+    logs_deep = logs->LastChildElement();
+    for (auto elem : closed) {
+        Node cur = elem.second;
+        element = doc.NewElement(CNS_TAG_POINT);
+        element->SetAttribute(CNS_TAG_ATTR_X, cur.j);
+        element->SetAttribute(CNS_TAG_ATTR_Y, cur.i);
+        element->SetAttribute(CNS_TAG_ATTR_F, cur.F);
+        element->SetAttribute(CNS_TAG_ATTR_G, cur.g);
+        logs_deep->InsertEndChild(element);
+    }
+}
 
 void XmlLogger::writeToLogPath(const std::list<Node> &path)
 {
