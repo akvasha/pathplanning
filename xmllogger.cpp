@@ -149,6 +149,10 @@ void XmlLogger::writeToLogOpenClose(const OpenCellsContainer &open, const Closed
         element->SetAttribute(CNS_TAG_ATTR_Y, cur.i);
         element->SetAttribute(CNS_TAG_ATTR_F, cur.F);
         element->SetAttribute(CNS_TAG_ATTR_G, cur.g);
+        if (cur.g > 0) {
+            element->SetAttribute(CNS_TAG_ATTR_PARX, cur.parent->j);
+            element->SetAttribute(CNS_TAG_ATTR_PARY, cur.parent->i);
+        }
         logs_deep->InsertEndChild(element);
     }
     logs->InsertEndChild(doc.NewElement(CNS_TAG_CLOSE));
@@ -160,6 +164,10 @@ void XmlLogger::writeToLogOpenClose(const OpenCellsContainer &open, const Closed
         element->SetAttribute(CNS_TAG_ATTR_Y, cur.i);
         element->SetAttribute(CNS_TAG_ATTR_F, cur.F);
         element->SetAttribute(CNS_TAG_ATTR_G, cur.g);
+        if (cur.g > 0) {
+            element->SetAttribute(CNS_TAG_ATTR_PARX, cur.parent->j);
+            element->SetAttribute(CNS_TAG_ATTR_PARY, cur.parent->i);
+        }
         logs_deep->InsertEndChild(element);
     }
 }
