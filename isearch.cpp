@@ -22,6 +22,7 @@ SearchResult ISearch::startSearch(ILogger *Logger, const Map &map, const Environ
     startNode.F = startNode.H * hweight;
     startNode.g = 0;
     Node currNode;
+    open.setBreakingTies(breakingties);
     open.insert(startNode);
     while (!open.empty()) {
         currNode = open.min_element();
@@ -117,12 +118,15 @@ void ISearch::makeSecondaryPath()
 {
     int vx = 7, vy = 7;
     int vdx, vdy;
-    Node previous;
+    Node previous = *lppath.begin();
     for (Node vertex : lppath) {
+        if (vertex == *lppath.begin()) {
+            continue;
+        }
         vdx = vertex.i - previous.i;
         vdy = vertex.j - previous.j;
-        if (!(vdx == vx && vdy == vy)) {
-            hppath.push_back(vertex);
+        if (vdx != vx || vdy != vy) {
+            hppath.push_back(previous);
             vx = vdx, vy = vdy;
         }
         previous = vertex;

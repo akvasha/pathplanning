@@ -23,10 +23,13 @@ public:
     Node min_element() const;
     void recalc(Node node);
     std::unordered_map<CellCoords, Node, CellCoords::hasher> get_nodes() const;
+    void setBreakingTies(bool breakingties);
+    double getG(double g);
 
 private:
     std::unordered_map<CellCoords, Node, CellCoords::hasher> nodes;
     std::set<std::pair<std::pair<double, double>, CellCoords>> min_value;
+    bool breakties;
 };
 
 #endif //PATHPLANNING_OPENCELLSCONTAINER_H
